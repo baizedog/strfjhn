@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+/*大的那个*/
+#da{
+	width: 800px;
+	height: 500px;
+	overflow: hidden;
+	position: relative;
+	left: 15%;
+	border: 3px solid #000000;
+}
+#zhong{
+	width: 4000px;
+	height: 500px;
+	position: absolute;
+	z-index: 10;
+}
+#zhong div{float:left;}
+.a{
+	width: 800px;
+	height: 500px;
+	background-color: #F90404;
+	float: left;
+}
+.b{
+	width: 800px;
+	height: 500px;
+	background-color: #000000;
+	float: left;
+}
+.c{
+	width: 800px;
+	height: 500px;
+	background-color: #0381F5;
+	float: left;
+}
+.btn {
+	border-radius: 50%;
+	cursor: pointer;
+	float: left;
+	width: 50px;
+	height:50px; 
+	line-height: 50px; 
+	font-size: 36px;
+	font-weight: bold;
+	position: absolute;
+	background-color: RGBA(0,0,0,.3);
+	color: #fff;
+	z-index: 100;
+    top: 200px;
+	text-align: center;
+}
+.btn:hover{
+	background-color: RGBA(0,0,0,.7);
+}
+#buttons { 
+	position: absolute;
+	height: 10px; 
+	width: 100px;
+	z-index: 100;
+	bottom: 20px;
+	left: 375px;
+}
+#buttons span { cursor: pointer;
+		float: left;
+		border: 1px solid #fff; 
+		width: 10px; 
+		height: 10px;
+		border-radius: 50%;
+		background: #333;
+		margin-right: 5px;
+}
+#buttons .liang {
+	 background: orangered;
+}
+#zuo{
+	left:10px;
+}
+#you{
+	right: 10px;
+}

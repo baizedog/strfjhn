@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>可以动的哈哈</title>
+<link type="text/css" href="text.css" rel="stylesheet">
+<script type="text/javascript">
+	window.onload=function(){
+		var da = document.getElementById("da");
+		var zhong = document.getElementById('zhong'); 
+		var zuo = document.getElementById('zuo');
+		var you = document.getElementById('you');
+		var buttons = document.getElementById('buttons').getElementsByTagName('span');
+		var index = 1;
+		var jishi;
+		
+		function showButton() {
+                for (var i = 0; i < 5 ; i++) {
+                    if( buttons[i].className == 'liang'){
+                        buttons[i].className = '';
+                        break;
+                    }
+                }
+                buttons[index - 1].className = 'liang';
+            }
+		
+		function a(dir){
+			var nem = parseInt(zhong.style.left)+ dir ;
+			var time = 400;
+			var jiange = 5;
+			var speed = dir/(time/jiange);
+			function run(){
+				if((speed > 0&&parseInt(zhong.style.left)<nem)||(speed<0 && parseInt(zhong.style.left)>nem)){
+					zhong.style.left = parseInt(zhong.style.left) + speed + 'px';
+					setTimeout(run,jiange);
+				}
+				else{
+					zhong.style.left = nem + 'px';
+					if (nem > -800){
+						zhong.style.left = -2400 +'px';
+					}
+					if (nem < -2400){
+						zhong.style.left = -800 +'px';
+					}
+				}
+			}
+			run();
+		}
+		function auto(){
+			jishi = setInterval(function(){
+				you.onclick();
+			},2000)
+		}
+		auto();
+		you.onclick = function(){
+			a(-800);
+			if (index == 3) {
+                index = 1;
+            }
+            else {
+               index += 1;
+            }
+			showButton();
+		}
+		zuo.onclick = function(){
+			a(800);
+			if (index == 1) {
+                index = 3;
+            }
+            else {
+               index -= 1;
+            }
+			showButton();
+		}
+		for(var i = 0;i< 5;i++)
+			{
+				buttons[i].onclick = function(){
+					var newpic = parseInt(this.getAttribute('index'));
+					var dir = -800*(newpic - index);
+					a(dir);
+					index = newpic;
+					showButton();
+				}
+			}
+		
+}
+</script>
+</head>
+<body>
+	<div id="da">
+		<div id="zhong" style="left: -800px;">
+			<div class="c"></div>
+			<div class="a"></div>
+			<div class="b"></div>
+			<div class="c"></div>
+			<div class="a"></div>
+		</div>
+		<div id="buttons">
+        <span index="1" class="liang"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+    </div>
+		<a href="javascript:;" class="btn" id="zuo">&lt;</a>
+		<a href="javascript:;" class="btn" id="you">&gt;</a>
+	</div>
+		
+</body>
+</html>
